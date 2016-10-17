@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Assignment2</title>
+    </head>
+    
+    <style>
+        
+        #Add {
+            height: 60px;
+            width: 60px;
+            background-color: red;
+            border-radius: 10px;
+            border: solid 2px black;
+        }
+        
+        #URL {
+            position: relative;
+            top: 10px;
+            left: -177px;
+            
+            
+        }
+        
+        #msg {
+            position: relative;
+            top: 40px;
+            left: -354px;
+            
+        }
+        
+        #header {
+            position: relative;
+            top: -20px;
+            
+        }
+        
+        .thumb {
+            position: absolute;
+            height: 100px;
+            width: 10vw;
+        }
+        
+        #CLEAR {
+            height: 60px;
+            width: 60px;
+            float: right;
+            background-color: red;
+            border-radius: 10px;
+            border: solid 2px black;
+        
+        }
+    
+    </style>
+    
+    <body>
+        <button id='CLEAR'>CLEAR</button>
+        <button id='Add'>ADD</button>
+        <input type='text' placeholder='Type in a header' id='header' />
+        <input type='text' placeholder='Place IMG link' id='URL' />
+        <input type='text' placeholder='Type in a message' id='msg' />
+        
+    </body>
+    
+    <script>
+        
+        var msgInput = document.getElementById("msg");
+        var urlInput = document.getElementById("URL");
+        var headerInput = document.getElementById("header");
+        var addBut = document.getElementById("Add")
+        
+        addBut.onclick = function(){
+            
+            var newDiv = document.createElement("div")
+            document.body.appendChild(newDiv)
+            
+            newDiv.style.width = "50vw";
+            newDiv.style.height = "150px";
+            newDiv.style.backgroundColor = "#1970BC";
+            newDiv.style.position = "relative";
+            newDiv.style.top = "100px";
+            newDiv.style.margin = "auto";
+            newDiv.style.border = "3px solid white";
+            newDiv.style.padding = "10px";
+            
+            
+            var newImg = document.createElement("img")
+            
+            newDiv.appendChild(newImg);
+            newImg.src = urlInput.value;
+            newImg.className = "thumb";
+            
+            var newDiv2 = document.createElement("div")
+            newDiv.appendChild(newDiv2);
+            
+            newDiv2.style.width = "35vw";
+            newDiv2.style.height = "40px";
+            newDiv2.style.backgroundColor = "#8C80AC";
+            newDiv2.style.position = "relative";
+            newDiv2.style.left = "80px";
+            newDiv2.style.margin = "auto";
+            newDiv2.style.border = "3px solid white";
+            newDiv2.style.padding = "10px";
+            
+            
+            var newHeader = document.createElement("H1");
+            var newtext = document.createTextNode(headerInput.value);
+            newHeader.appendChild(newtext);
+            newDiv2.appendChild(newHeader);
+            
+            
+            var newDiv3 = document.createElement("div")
+            newDiv.appendChild(newDiv3);
+            
+            newDiv3.style.width = "35vw";
+            newDiv3.style.height = "40px";
+            newDiv3.style.backgroundColor = "#04BC48";
+            newDiv3.style.position = "relative";
+            newDiv3.style.top = "20px";
+            newDiv3.style.left = "80px";
+            newDiv3.style.margin = "auto";
+            newDiv3.style.border = "3px solid white";
+            newDiv3.style.padding = "10px";
+            
+            
+            var newPara = document.createElement("p");
+            var newPNODE = document.createTextNode(msgInput.value);
+            newPara.appendChild(newPNODE);
+            newDiv3.appendChild(newPara);
+            
+            var clearBut = document.getElementById("CLEAR");
+            
+            clearBut.onclick = function(){
+                newDiv3.innerHTML = "";
+            }
+            
+            
+            
+
+             
+        }
+    
+    </script>
+</html>
